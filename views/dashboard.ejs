@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/users/logout"> Logout</a>
+    <h1><% if(avc == 'levon') { %>
+        HELLO LEVON DZA 
+        <%=ccc%>
+    <% } %> </h1> 
+
+    <% if(avc == 'hrach') { %>
+        <form action="/users/dashboard" method="POST">
+        <% for (i = 0;i < usersList.length;i++) { %>
+            <fieldset>
+                <legend> <%= usersList[i].email  %></legend>
+            <div>
+                <input type="checkbox" id ="<%= usersList[i].id %>"  name = "<%= usersList[i].id %>" value="verified">
+                <label for="<%= usersList[i].id %>"> accept </label><br>
+            </div>
+            <div>
+                
+                <input type="checkbox" id ="<%= usersList[i].id %>" name = "<%= usersList[i].id %>" value="rejected">
+                <label for="<%= usersList[i].id %>"> reject </label><br>
+            </div>
+            
+        </fieldset>
+            <% } %> 
+            <div>
+                <input type="submit" value="SUBMIT" required>
+            </div>
+            <% } %> 
+    </form>
+    <% if(avc != 'hrach') { %>
+        asdasdasdasdasd111
+        <form action="/users/dashboard" method="POST">
+            <fieldset>
+                <legend> <%= userInfo.email  %></legend>
+            <div>
+                <input type="text" id ="<%= userInfo.name %>"  name = "<%= userInfo.id %>">
+                <label for="<%= userInfo.name %>"> edit your info </label><br>
+            </div>
+            
+        </fieldset>
+            <div>
+                <input type="submit" value="SUBMIT" required>
+            </div>
+    </form>
+
+      
+       
+
+    <% } %> 
+
+</body>
+</html> 
